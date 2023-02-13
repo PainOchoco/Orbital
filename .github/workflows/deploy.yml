@@ -1,0 +1,10 @@
+name: Github Pages Deploy
+run-name: Deploying to Github Pages 🚀
+on: [push]
+jobs:
+    Deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run deploy script
+              run: ./.github/scripts/deploy.sh
+              shell: bash

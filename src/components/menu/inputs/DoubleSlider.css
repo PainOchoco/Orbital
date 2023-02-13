@@ -1,0 +1,66 @@
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    background-color: transparent;
+    pointer-events: none;
+    width: 16rem;
+}
+
+.slider-track {
+    width: 90%;
+    height: 5px;
+    position: absolute;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #d97706;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    -moz-appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-ms-track {
+    appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    background-color: #6b7280;
+    cursor: pointer;
+    margin-top: -9px;
+    pointer-events: auto;
+    border-radius: 70%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -moz-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 70%;
+    background-color: #6b7280;
+    pointer-events: auto;
+}
+
+input[type="range"]::-ms-thumb {
+    appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 70%;
+    background-color: #6b7280;
+    pointer-events: auto;
+}

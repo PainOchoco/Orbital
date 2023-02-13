@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Orkney";
+        src: url("./fonts/Orkney-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Orkney";
+        src: url("./fonts/Orkney-Bold.ttf") format("truetype");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+:root {
+    color-scheme: dark;
+}
+
+html,
+body {
+    height: 100%;
+}
