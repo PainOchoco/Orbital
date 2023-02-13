@@ -14,6 +14,8 @@ jobs:
                   npm run build
                   cd dist
                   echo > .nojekyll
+                  git config --global user.email "${{ secrets.GH_EMAIL }}"
+                  git config --global user.name "${{ secrets.GH_USER }}"
                   git init
                   git checkout -B main
                   git add -A
