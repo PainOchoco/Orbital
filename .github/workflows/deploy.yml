@@ -8,6 +8,7 @@ jobs:
             - uses: actions/checkout@v2
             - name: Run deploy script
               run: |
+                  export NODE_OPTIONS="--max_old_space_size=4096"
                   set -e
                   npm i
                   npm run build
