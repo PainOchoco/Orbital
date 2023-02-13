@@ -20,6 +20,6 @@ jobs:
                   git checkout -B main
                   git add -A
                   git commit -m 'deploy'
-                  git push -f https://${{ secrets.GH_USER }}:${{ secrets.GH_TOKEN }}@github.com:PainOchoco/Orbital.git main:gh-pages
+                  git push -f https://${{ secrets.GH_USER }}:${{ secrets.GH_TOKEN }}@github.com/PainOchoco/Orbital.git main:gh-pages
                   cd -
               shell: bash
