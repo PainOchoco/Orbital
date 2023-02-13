@@ -9,6 +9,7 @@ jobs:
             - name: Run deploy script
               run: |
                   set -e
+                  npm i
                   npm run build
                   cd dist
                   echo > .nojekyll
