@@ -5,7 +5,7 @@ jobs:
     Deploy:
         runs-on: ubuntu-latest
         steps:
-            - run: ls
+            - run: ls ${{ github.workspace }}
             - name: Run deploy script
               run: |
                   set -e
