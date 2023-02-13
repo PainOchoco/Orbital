@@ -6,5 +6,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Run deploy script
-              run: ./.github/scripts/deploy.sh
+              run: |
+                  set -e
+                  npm run build
+                  cd dist
+                  echo > .nojekyll
+                  git init
+                  git checkout -B main
+                  git add -A
+                  git commit -m 'deploy'
+                  git push -f git@github.com:PainOchoco/Orbital.git main:gh-pages
+                  cd -
               shell: bash
