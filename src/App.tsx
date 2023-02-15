@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import MenuButton from "./components/menu/MenuButton";
+import ReloadPrompt from "./components/ReloadComponent";
 import { Satellite, SatelliteRaw } from "./components/scene/satellite";
 import Scene from "./components/scene/Scene";
 import SatellitesContext from "./contexts/SatellitesContext";
@@ -18,6 +19,7 @@ function App() {
             <SatellitesContext.Provider value={satellites}>
                 <Scene />
                 <MenuButton />
+                <ReloadPrompt />
             </SatellitesContext.Provider>
         </div>
     );
