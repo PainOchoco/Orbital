@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import Earth from "./Earth";
 import { Constants } from "../../Constants";
 import { Vector2 } from "three";
-import { useState } from "react";
 import { Satellites } from "./satellite/";
 import Tag from "./Tag";
 import Orbits from "./Orbits";

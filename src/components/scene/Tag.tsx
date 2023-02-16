@@ -1,7 +1,7 @@
 import { Html } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useContext, useEffect, useRef, useState } from "react";
-import { Euler, Vector2 } from "three";
+import { Vector2 } from "three";
 import { Constants } from "../../Constants";
 import SatellitesContext from "../../contexts/SatellitesContext";
 import { EventEmitter, Event } from "../../events/";
@@ -18,7 +18,7 @@ function Tag() {
     const [focusedSatellite, setFocusedSatellite] = useState<Satellite>(null!);
     const tagRef = useRef<HTMLDivElement>(null!);
     const state = useThree();
-    const controls = useThree((state) => state.controls) as OrbitControls;
+    // const controls = useThree((state) => state.controls) as OrbitControls;
     const tagOffset = 10;
 
     function onMouseMove(event: MouseEvent) {

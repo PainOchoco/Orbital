@@ -1,10 +1,10 @@
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useContext, useEffect, useRef } from "react";
 import { Color, InstancedMesh, Object3D, Vector3 } from "three";
 import { Coordinates, Satellite } from "./Satellite";
 import { WorkerInstruction, WorkerRequest, WorkerResponse } from "../../../worker/WorkerProtocol";
 import { Constants } from "../../../Constants";
-import { SatelliteType, colors } from ".";
+import { colors } from ".";
 import SatellitesContext from "../../../contexts/SatellitesContext";
 import Emitter from "../../../events/EventEmitter";
 import Event from "../../../events/Event";
