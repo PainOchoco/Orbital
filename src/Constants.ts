@@ -1,5 +1,5 @@
 export namespace Constants {
-    export const FACTOR = 1000;
+    export const FACTOR = 1000; // 1 is 1km
     export const EARTH_RADIUS = 6378 / FACTOR;
     export const CAMERA_DISTANCE = 16000 / FACTOR;
     export const COLOR_DEEP_BLACK = "#111827";
@@ -18,4 +18,5 @@ export namespace Constants {
     export const HIGHEST_EARTH_ORBIT = 75000 / FACTOR;
     export const MIN_SPEED = 0;
     export const MAX_SPEED = 11; // fastest i've seen (except weird ones)
+    export const TIME_JUMP = 250; // in ms
 }

@@ -5,7 +5,7 @@ import { Constants } from "../Constants";
 import { WorkerInstruction, WorkerRequest, WorkerResponse } from "./WorkerProtocol";
 
 let satellites = new Array<Satellite>();
-
+let date = new Date();
 onmessage = (event: MessageEvent<WorkerRequest>) => {
     if (event.data.instruction == WorkerInstruction.INIT) {
         satellites = event.data.data!;
@@ -17,14 +17,16 @@ onmessage = (event: MessageEvent<WorkerRequest>) => {
 
             for (let i = 0; i < satellites.length; i++) {
                 const satellite = satellites[i];
-                coordinates.push(updateCoordinates(satellite.satrec, new Date()));
+                coordinates.push(updateCoordinates(satellite.satrec, date));
             }
 
             postMessage({
                 instruction: WorkerInstruction.COORDINATES,
                 data: coordinates,
             } as WorkerResponse);
-        }, 500);
+
+            date.setTime(date.getTime() + Constants.TIME_JUMP);
+        }, 250); // Fixed value, every 1/4 of a second.
     }
 
     // One time computation
