@@ -7,7 +7,7 @@ import SatellitesContext from "../../contexts/SatellitesContext";
 import { EventEmitter, Event } from "../../events/";
 import { Satellite } from "./satellite/Satellite";
 import Info from "./Info";
-import { OrbitControls } from "three-stdlib";
+// import { OrbitControls } from "three-stdlib";
 // import { Tween } from "@tweenjs/tween.js";
 
 function Tag() {
@@ -58,7 +58,7 @@ function Tag() {
         setHoveredSatellite(satellite);
     }
 
-    function onSatelliteUnhover() {
+    function onSatelliteUnhover(satellite: Satellite) {
         setHoveredSatellite(null!);
     }
 
@@ -108,16 +108,18 @@ function Tag() {
         ) {
             const satellite = satellites[firstIntersection.instanceId!];
 
+            // If a new satellite is hovered
             if (satellite != hoveredSatellite) {
-                EventEmitter.emit(Event.SATELLITE_HOVER, satellite);
+                // Unhover the previous satellite if there was one
                 if (hoveredSatellite) {
                     EventEmitter.emit(Event.SATELLITE_UNHOVER, hoveredSatellite);
                 }
+
+                EventEmitter.emit(Event.SATELLITE_HOVER, satellite);
             }
-        } else {
-            if (hoveredSatellite) {
-                EventEmitter.emit(Event.SATELLITE_UNHOVER, hoveredSatellite);
-            }
+            // If there is no intersection and a satellite was getting hovered
+        } else if (hoveredSatellite) {
+            EventEmitter.emit(Event.SATELLITE_UNHOVER, hoveredSatellite);
         }
     });
 
