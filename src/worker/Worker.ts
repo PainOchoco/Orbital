@@ -2,13 +2,17 @@ import { EciVec3, propagate, SatRec } from "satellite.js";
 import { Euler, Vector3 } from "three";
 import { Coordinates, Satellite } from "../components/scene/satellite/Satellite";
 import { Constants } from "../Constants";
+import { Settings } from "../contexts/SettingsContext";
 import { WorkerInstruction, WorkerRequest, WorkerResponse } from "./WorkerProtocol";
 
 let satellites = new Array<Satellite>();
+let settings: Settings;
 let date = new Date();
+let frameCount = 0;
 onmessage = (event: MessageEvent<WorkerRequest>) => {
     if (event.data.instruction == WorkerInstruction.INIT) {
-        satellites = event.data.data!;
+        if (event.data.data) satellites = event.data.data;
+        if (event.data.settings) settings = event.data.settings;
     }
 
     if (event.data.instruction == WorkerInstruction.COORDINATES) {
@@ -25,8 +29,13 @@ onmessage = (event: MessageEvent<WorkerRequest>) => {
                 data: coordinates,
             } as WorkerResponse);
 
-            date.setTime(date.getTime() + Constants.TIME_JUMP);
-        }, 250); // Fixed value, every 1/4 of a second.
+            const timeMultiplier = settings?.timeMultiplier ? settings.timeMultiplier : 1;
+            const nextFrameTime =
+                new Date().getTime() + frameCount * Constants.TIME_JUMP * timeMultiplier;
+
+            date.setTime(nextFrameTime);
+            frameCount++;
+        }, Constants.TIME_JUMP);
     }
 
     // One time computation

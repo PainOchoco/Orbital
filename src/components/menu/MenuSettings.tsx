@@ -1,5 +1,6 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import SettingsContext from "../../contexts/SettingsContext";
+import RadioTiles from "./inputs/RadioTiles";
 import Toggle from "./inputs/Toggle";
 
 function MenuSettings() {
@@ -25,7 +26,19 @@ function MenuSettings() {
                             setSettings({ ...settings, showAtmosphere: !settings.showAtmosphere });
                         }}
                     />
-                    <p className="font-bold text-gray-00">Show atmosphere</p>
+                    <p className="font-bold text-slate-300">Show atmosphere</p>
+                </div>
+                <div className="py-2">
+                    <p className="font-bold text-slate-300 pb-2">Time multiplier</p>
+                    <RadioTiles
+                        labels={["x1", "x5", "x10", "x100", "x200"]}
+                        values={[1, 5, 10, 100, 200]}
+                        name="multiplier"
+                        get={settings.timeMultiplier}
+                        set={(value) => {
+                            setSettings({ ...settings, timeMultiplier: value });
+                        }}
+                    />
                 </div>
             </div>
         </div>

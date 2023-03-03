@@ -18,9 +18,10 @@ It also uses instanced mesh for the 3D object, which helps avoid a ton of GPU dr
 
 ## 📋 To Do List
 
--   [ ] Settings menu
+-   [x] Settings menu
     -   [x] Switch between color and image background
     -   [x] Show atmosphere
-    -   [ ] Time multiplier
+    -   [x] Time multiplier
 -   [ ] Ability to focus satellite and follow it
 -   [ ] Automatic SpaceTrack data fetching
+-   [ ] Time tracking

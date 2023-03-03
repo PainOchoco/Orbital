@@ -8,15 +8,18 @@ import { colors } from ".";
 import SatellitesContext from "../../../contexts/SatellitesContext";
 import Emitter from "../../../events/EventEmitter";
 import Event from "../../../events/Event";
+import SettingsContext from "../../../contexts/SettingsContext";
 
 let updatedCoordinates = new Array<Coordinates>();
 const color = new Color();
 const zeroVector = new Vector3(0, 0, 0);
 const dummy = new Object3D();
+let worker: Worker;
 
 function Satellites() {
     const meshRef = useRef<InstancedMesh>(null!);
     const satellites = useContext(SatellitesContext);
+    const { settings, setSettings } = useContext(SettingsContext);
 
     function onSatelliteHover(satellite: Satellite) {
         meshRef.current.setColorAt(
@@ -33,14 +36,16 @@ function Satellites() {
         );
     }
 
+    // Initialization
     useEffect(() => {
-        const worker = new Worker(new URL("../../../worker/Worker.ts", import.meta.url), {
+        worker = new Worker(new URL("../../../worker/Worker.ts", import.meta.url), {
             type: "module",
         });
 
         worker.postMessage({
             instruction: WorkerInstruction.INIT,
             data: satellites,
+            settings: settings,
         } as WorkerRequest);
 
         worker.postMessage({
@@ -62,6 +67,14 @@ function Satellites() {
         Emitter.on(Event.SATELLITE_HOVER, onSatelliteHover);
         Emitter.on(Event.SATELLITE_UNHOVER, onSatelliteUnhover);
     }, []);
+
+    // Update settings
+    useEffect(() => {
+        worker.postMessage({
+            instruction: WorkerInstruction.INIT,
+            settings: settings,
+        } as WorkerRequest);
+    }, [settings]);
 
     useFrame(() => {
         if (updatedCoordinates.length) {
