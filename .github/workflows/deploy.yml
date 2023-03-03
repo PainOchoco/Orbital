@@ -1,5 +1,7 @@
 name: Github Pages Deploy
 run-name: Deploying to Github Pages 🚀
+runs:
+    using: "node16"
 on: [push]
 jobs:
     Deploy:
