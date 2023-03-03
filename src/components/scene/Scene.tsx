@@ -35,7 +35,7 @@ function Scene() {
                 <ambientLight />
                 <pointLight position={[10, 6, 10]} />
                 <Earth />
-                {/* <SkyDome /> */}
+                <SkyDome />
                 <Satellites />
                 <Orbits />
                 <Tag />

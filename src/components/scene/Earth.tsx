@@ -6,9 +6,12 @@ import EarthFragment from "../../shaders/EarthFragment.glsl";
 import EarthVertex from "../../shaders/EarthVertex.glsl";
 import AtmosphereVertex from "../../shaders/AtmosphereVertex.glsl";
 import AtmosphereFragment from "../../shaders/AtmosphereFragment.glsl";
+import { useContext } from "react";
+import SettingsContext from "../../contexts/SettingsContext";
 
 function Earth() {
     const earthTexture = useLoader(TextureLoader, EarthTexture);
+    const { settings } = useContext(SettingsContext);
 
     return (
         <>
@@ -21,16 +24,18 @@ function Earth() {
                 />
             </mesh>
 
-            <mesh>
-                <sphereGeometry args={[Constants.EARTH_RADIUS * 1.1, 32, 32]} />
-                <shaderMaterial
-                    transparent={true}
-                    fragmentShader={AtmosphereFragment}
-                    vertexShader={AtmosphereVertex}
-                    blending={AdditiveBlending}
-                    side={BackSide}
-                />
-            </mesh>
+            {settings.showAtmosphere && (
+                <mesh>
+                    <sphereGeometry args={[Constants.EARTH_RADIUS * 1.1, 32, 32]} />
+                    <shaderMaterial
+                        transparent={true}
+                        fragmentShader={AtmosphereFragment}
+                        vertexShader={AtmosphereVertex}
+                        blending={AdditiveBlending}
+                        side={BackSide}
+                    />
+                </mesh>
+            )}
         </>
     );
 }

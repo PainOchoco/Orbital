@@ -1,22 +1,50 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MenuButton from "./components/menu/MenuButton";
 import { Satellite, SatelliteRaw } from "./components/scene/satellite";
 import Scene from "./components/scene/Scene";
 import SatellitesContext from "./contexts/SatellitesContext";
+import SettingsContext, { Settings } from "./contexts/SettingsContext";
 import data from "./data.json";
 
 function App() {
-    const [satellites, setSatellites] = useState(new Array<Satellite>());
+    const [satellites, setSatellites] = useState(() => parseSatellites(data as SatelliteRaw[]));
+    const [settings, setSettings] = useState<Settings>({
+        showSkymap: false,
+        showAtmosphere: true,
+        timeMultiplier: 1,
+    });
 
-    const rawSatellites: SatelliteRaw[] = data as SatelliteRaw[];
-    for (let i = 0; i < rawSatellites.length; i++) {
-        satellites.push(new Satellite(rawSatellites[i]));
+    function parseSatellites(data: SatelliteRaw[]) {
+        const parsedSatellites: Satellite[] = [];
+        const rawSatellites: SatelliteRaw[] = data as SatelliteRaw[];
+        for (let i = 0; i < rawSatellites.length; i++) {
+            parsedSatellites.push(new Satellite(rawSatellites[i]));
+        }
+        return parsedSatellites;
     }
+
+    const settingsValue = useMemo(() => ({ settings, setSettings }), [settings, setSettings]);
+
+    useEffect(() => {
+        for (const [k, v] of Object.entries(settings)) {
+            const settingValue = localStorage.getItem(k);
+            if (settingValue) {
+                try {
+                    (settings as any)[k] = JSON.parse(settingValue);
+                } catch (err) {
+                    console.error(`Setting ${k} not valid`);
+                }
+            }
+        }
+    }, []);
+
     return (
         <div className="App">
             <SatellitesContext.Provider value={satellites}>
-                <Scene />
-                <MenuButton />
+                <SettingsContext.Provider value={settingsValue}>
+                    <Scene />
+                    <MenuButton />
+                </SettingsContext.Provider>
             </SatellitesContext.Provider>
         </div>
     );

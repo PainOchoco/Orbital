@@ -21,13 +21,14 @@ import {
     SatelliteSize,
     SatelliteType,
 } from "../scene/satellite";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Multiselect from "./inputs/MultiSelect";
 import DoubleSlider from "./inputs/DoubleSlider";
 import Filter from "./Filter";
 import SatellitesContext from "../../contexts/SatellitesContext";
 import { Virtuoso } from "react-virtuoso";
 import { Constants } from "../../Constants";
+import Settings from "./MenuSettings";
 
 library.add(
     faXmark,
@@ -189,8 +190,8 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                     </div>
                 </div>
             </form>
-            <div>
-                <h1 className="text-amber-600 font-bold text-3xl pt-5">
+            <div className="py-5">
+                <h1 className="text-amber-600 font-bold text-3xl">
                     Objects Found <span className="text-sm">{filteredSatellites.length}</span>
                 </h1>
                 <div className="h-64">
@@ -208,6 +209,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                     />
                 </div>
             </div>
+            <Settings />
         </div>
     );
 }
