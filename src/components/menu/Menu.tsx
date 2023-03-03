@@ -87,7 +87,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
         <div
             className={`${
                 props.opened ? "" : "translate-x-full invisible"
-            } absolute top-0 right-0 bottom-0 bg-gradient-to-b from-slate-700 to-[#20395C] transition-all h-screen p-5 overflow-scroll`}
+            } absolute top-0 right-0 bottom-0 bg-gradient-to-b from-slate-700/75 to-[#20395C] transition-all h-screen p-5 overflow-scroll rounded-l-lg border-[1px] border-gray-800 backdrop-blur-sm select-none`}
         >
             <div className="flex items-center content-center gap-3">
                 <button
