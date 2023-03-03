@@ -6,6 +6,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+              with:
+                  token: ${{ secrets.GH_TOKEN }}
             - name: Run deploy script
               run: |
                   export NODE_OPTIONS="--max_old_space_size=4096"
