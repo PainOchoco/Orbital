@@ -23,9 +23,9 @@ function App() {
         return parsedSatellites;
     }
 
-    const settingsValue = useMemo(() => ({ settings, setSettings }), [settings, setSettings]);
+    const settingsState = useMemo(() => ({ settings, setSettings }), [settings, setSettings]);
 
-    useEffect(() => {
+    function loadSettings(settings: Settings) {
         for (const [k, v] of Object.entries(settings)) {
             const settingValue = localStorage.getItem(k);
             if (settingValue) {
@@ -36,12 +36,26 @@ function App() {
                 }
             }
         }
+    }
+
+    function saveSettings(settings: Settings) {
+        for (const [k, v] of Object.entries(settings)) {
+            localStorage.setItem(k, v.toString());
+        }
+    }
+
+    useEffect(() => {
+        loadSettings(settings);
     }, []);
+
+    useEffect(() => {
+        window.addEventListener("beforeunload", () => saveSettings(settings));
+    }, [settings]);
 
     return (
         <div className="App">
             <SatellitesContext.Provider value={satellites}>
-                <SettingsContext.Provider value={settingsValue}>
+                <SettingsContext.Provider value={settingsState}>
                     <Scene />
                     <MenuButton />
                 </SettingsContext.Provider>
