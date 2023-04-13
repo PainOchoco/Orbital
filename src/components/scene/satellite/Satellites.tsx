@@ -76,7 +76,7 @@ function Satellites() {
         } as WorkerRequest);
     }, [settings]);
 
-    useFrame(() => {
+    useFrame((state, delta) => {
         if (updatedCoordinates.length) {
             for (let i = 0; i < satellites.length; i++) {
                 const satellite = satellites[i];
@@ -91,7 +91,7 @@ function Satellites() {
                 if (position == zeroVector || pos == zeroVector) {
                     interpolatedPos = position;
                 } else {
-                    interpolatedPos = pos.lerp(position, 0.01);
+                    interpolatedPos = pos.lerp(position, delta);
                 }
 
                 dummy.position.set(interpolatedPos.x, interpolatedPos.y, interpolatedPos.z);

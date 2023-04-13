@@ -18,7 +18,6 @@ function Tag() {
     const [focusedSatellite, setFocusedSatellite] = useState<Satellite>(null!);
     const tagRef = useRef<HTMLDivElement>(null!);
     const state = useThree();
-    // const controls = useThree((state) => state.controls) as OrbitControls;
     const tagOffset = 10;
 
     function onMouseMove(event: MouseEvent) {
@@ -66,19 +65,6 @@ function Tag() {
         setFocusedSatellite(satellite);
     }
 
-    // function onSatelliteShiftClick(satellite: Satellite) {
-    //     if (controls) {
-    //         const pos = satellite.coordinates.position;
-    //         controls.minDistance = 0;
-    //         console.log(controls.target);
-
-    //         const end = pos.clone();
-
-    //         new Tween(controls.target).to(end, 1500).start();
-    //         controls.target.set(pos.x, pos.y, pos.z);
-    //     }
-    // }
-
     useEffect(() => {
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("mouseover", onMouseOver);
@@ -87,10 +73,6 @@ function Tag() {
         EventEmitter.on(Event.SATELLITE_UNHOVER, onSatelliteUnhover);
         EventEmitter.on(Event.SATELLITE_CLICK, onSatelliteClick);
     }, []);
-
-    // useEffect(() => {
-    //     EventEmitter.on(Event.SATELLITE_SHIFT_CLICK, onSatelliteShiftClick);
-    // }, [controls]);
 
     useFrame((state) => {
         if (!pointer || !onCanvas) return;

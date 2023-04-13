@@ -23,8 +23,6 @@ function App() {
         return parsedSatellites;
     }
 
-    const settingsState = useMemo(() => ({ settings, setSettings }), [settings, setSettings]);
-
     function loadSettings(settings: Settings) {
         for (const [k, v] of Object.entries(settings)) {
             const settingValue = localStorage.getItem(k);
@@ -55,7 +53,7 @@ function App() {
     return (
         <div className="App">
             <SatellitesContext.Provider value={satellites}>
-                <SettingsContext.Provider value={settingsState}>
+                <SettingsContext.Provider value={{ settings, setSettings }}>
                     <Scene />
                     <MenuButton />
                 </SettingsContext.Provider>

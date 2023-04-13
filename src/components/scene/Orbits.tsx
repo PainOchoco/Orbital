@@ -48,7 +48,8 @@ function Orbits() {
                     const orbitPoints = orbits[i].map((p) => new Vector3(p.x, p.y, p.z));
 
                     const curve = new CatmullRomCurve3(orbitPoints);
-                    const geometry = new BufferGeometry().setFromPoints(curve.getPoints(100));
+                    const curvePoints = curve.getPoints(Math.round(curve.getLength() * 2));
+                    const geometry = new BufferGeometry().setFromPoints(curvePoints);
                     orbitGeometries.push(geometry);
                 }
 

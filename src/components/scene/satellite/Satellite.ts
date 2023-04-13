@@ -1,5 +1,5 @@
 import { SatRec, twoline2satrec } from "satellite.js";
-import { Vector3 } from "three";
+import { CatmullRomCurve3, Vector3 } from "three";
 import { Constants } from "../../../Constants";
 import {
     SatelliteCountry,
@@ -28,7 +28,7 @@ export class Satellite {
         position: new Vector3(0, 0, 0),
         velocity: new Vector3(0, 0, 0),
     };
-    orbit: Vector3[] = new Array<Vector3>();
+    orbit: CatmullRomCurve3;
     show: boolean = true;
 
     constructor(raw: SatelliteRaw) {

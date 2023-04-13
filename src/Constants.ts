@@ -11,7 +11,7 @@ export namespace Constants {
     export const SATELLITES_MESH_NAME = "satellites";
     export const ORBITS_MESH_NAME = "orbits";
     export const EARTH_MESH_NAME = "earth";
-    export const ORBIT_POINTS = 100;
+    export const ORBIT_POINTS = 50;
     export const CAMERA_MAX_DISTANCE = 100000;
     export const CAMERA_MIN_DISTANCE = 0.01;
     export const LOWEST_EARTH_ORBIT = EARTH_RADIUS;
