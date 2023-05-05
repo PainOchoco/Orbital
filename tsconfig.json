@@ -17,7 +17,7 @@
         "noEmit": true,
         "jsx": "react-jsx"
     },
-    "include": ["src"],
+    "include": ["src", "./cypress.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }],
     "types": ["vite-plugin-pwa/client"]
 }
