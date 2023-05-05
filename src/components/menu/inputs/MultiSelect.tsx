@@ -2,7 +2,7 @@ import { IconProp, library } from "@fortawesome/fontawesome-svg-core";
 import { faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Listbox, Transition } from "@headlessui/react";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
 library.add(faChevronDown, faCheck);

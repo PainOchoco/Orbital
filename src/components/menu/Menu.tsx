@@ -21,7 +21,7 @@ import {
     SatelliteSize,
     SatelliteType,
 } from "../scene/satellite";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Multiselect from "./inputs/MultiSelect";
 import DoubleSlider from "./inputs/DoubleSlider";
 import Filter from "./Filter";
