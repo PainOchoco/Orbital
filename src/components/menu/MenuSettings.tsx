@@ -46,7 +46,7 @@ function MenuSettings() {
                         name="multiplier"
                         get={settings.timeMultiplier}
                         set={(value) => {
-                            setSettings({ ...settings, timeMultiplier: value });
+                            setSettings({ ...settings, timeMultiplier: value as number });
                         }}
                     />
                 </div>
@@ -58,18 +58,8 @@ function MenuSettings() {
                             values={Object.keys(lngs)}
                             name="lang"
                             get={i18n.resolvedLanguage}
-                            set={(value) => i18n.changeLanguage(value)}
+                            set={(value) => i18n.changeLanguage(value as string)}
                         />
-                        {/* {Object.keys(lngs).map((lng) => (
-                            <button
-                                type="submit"
-                                key={lng}
-                                onClick={() => i18n.changeLanguage(lng)}
-                                disabled={i18n.resolvedLanguage === lng}
-                            >
-                                {lngs[lng as keyof typeof lngs]}
-                            </button>
-                        ))} */}
                     </div>
                 </div>
             </div>

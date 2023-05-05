@@ -1,9 +1,9 @@
 function RadioTiles(props: {
     labels: string[];
-    values: any[];
+    values: (string | number)[];
     name: string;
-    get: any;
-    set: (value: any) => void;
+    get: string | number;
+    set: (value: string | number) => void;
 }) {
     return (
         <div className="flex flex-wrap gap-2">

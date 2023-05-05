@@ -17,7 +17,6 @@ import {
     SatelliteType,
 } from "./satellite/";
 import { t } from "i18next";
-import { useEffect } from "react";
 
 library.add(
     faCrosshairs,

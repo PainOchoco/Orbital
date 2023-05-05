@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import MenuButton from "./components/menu/MenuButton";
 import { Satellite, SatelliteRaw } from "./components/scene/satellite";
 import Scene from "./components/scene/Scene";
@@ -7,7 +7,7 @@ import SettingsContext, { Settings } from "./contexts/SettingsContext";
 import data from "./data.json";
 
 function App() {
-    const [satellites, setSatellites] = useState(() => parseSatellites(data as SatelliteRaw[]));
+    const [satellites] = useState(() => parseSatellites(data as SatelliteRaw[]));
     const [settings, setSettings] = useState<Settings>({
         showSkymap: false,
         showAtmosphere: true,
@@ -24,7 +24,7 @@ function App() {
     }
 
     function loadSettings(settings: Settings) {
-        for (const [k, v] of Object.entries(settings)) {
+        for (const [k] of Object.entries(settings)) {
             const settingValue = localStorage.getItem(k);
             if (settingValue) {
                 try {

@@ -2,13 +2,13 @@ import { IconProp, library } from "@fortawesome/fontawesome-svg-core";
 import { faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Listbox, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 library.add(faChevronDown, faCheck);
 
 function Multiselect(props: {
-    get: any[];
+    get: string[];
     set: React.Dispatch<React.SetStateAction<any[]>>;
     options: string[];
     label: string;
@@ -46,9 +46,9 @@ function Multiselect(props: {
                         leaveTo="opacity-0"
                     >
                         <Listbox.Options className="z-10 absolute mt-1 max-h-60 w-full overflow-auto rounded-xl bg-gray-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 sm:text-sm">
-                            {Object.keys(props.options).map((key) => (
+                            {Object.values(props.options).map((key, i) => (
                                 <Listbox.Option
-                                    key={key}
+                                    key={i}
                                     className={({ active }) =>
                                         `relative cursor-default select-none py-2 pl-10 pr-4 transition-colors text-gray-500 ${
                                             active ? "bg-gray-900" : ""

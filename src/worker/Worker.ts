@@ -7,7 +7,6 @@ import { WorkerInstruction, WorkerRequest, WorkerResponse } from "./WorkerProtoc
 
 let satellites = new Array<Satellite>();
 let settings: Settings;
-let date = new Date();
 let frameCount = 0;
 onmessage = (event: MessageEvent<WorkerRequest>) => {
     if (event.data.instruction == WorkerInstruction.INIT) {
@@ -16,6 +15,7 @@ onmessage = (event: MessageEvent<WorkerRequest>) => {
     }
 
     if (event.data.instruction == WorkerInstruction.COORDINATES) {
+        const date = new Date();
         setInterval(() => {
             const coordinates = new Array<Coordinates>();
 
@@ -56,7 +56,7 @@ onmessage = (event: MessageEvent<WorkerRequest>) => {
 };
 
 const getSceneVector = (vector: boolean | EciVec3<number>): Vector3 => {
-    let result = new Vector3(0, 0, 0);
+    const result = new Vector3(0, 0, 0);
     // Check for error
     if (vector) {
         const v = vector as EciVec3<number>;
@@ -85,8 +85,7 @@ const updateOrbit = (satrec: SatRec, date: Date): Vector3[] => {
 
     let i = 0;
     while (i < Constants.ORBIT_POINTS + 1) {
-        let t = date.getTime() + i * timeSlice * 60000;
-
+        const t = date.getTime() + i * timeSlice * 60000;
         const pos = updateCoordinates(satrec, new Date(t)).position;
 
         p.set(pos.x, pos.y, pos.z);

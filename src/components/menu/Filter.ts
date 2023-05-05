@@ -46,24 +46,36 @@ class Filter {
         for (let i = 0; i < satellites.length; i++) {
             const sat = satellites[i];
 
-            const isCompliant =
-                sat.coordinates.position.x != 0 &&
-                sat.coordinates.position.y != 0 &&
-                sat.coordinates.position.z != 0 &&
-                sat.coordinates.position != zeroVector &&
-                sat.name.startsWith(this?.namePattern) &&
-                (!this.id || sat.id == this?.id) &&
+            // TODO: Make this more readable, don't know how for now.
+            const isNotErrored = sat.coordinates.position != zeroVector;
+            const isNameMatching = sat.name.startsWith(this?.namePattern);
+            const isIdMatching = !this.id || sat.id == this?.id;
+            const isInDistanceRange =
                 sat.getDistanceToEarth() >= this.distanceToEarth[0] &&
-                sat.getDistanceToEarth() <= this.distanceToEarth[1] &&
-                ((!this.launchDate && !sat.launchDate) ||
-                    !this.launchDate ||
-                    (sat.launchDate && sat.launchDate.getTime() >= this.launchDate.getTime())) &&
-                (!this.launchSites.length || this.launchSites.includes(sat.launchSite)) &&
-                (!this.sizes.length || this.sizes.includes(sat.size)) &&
-                sat.getVelocity() >= this.speed[0] &&
-                sat.getVelocity() <= this.speed[1] &&
-                (!this.countries.length || this.countries.includes(sat.country)) &&
-                (!this.types.length || this.types.includes(sat.type));
+                sat.getDistanceToEarth() <= this.distanceToEarth[1];
+            const isInVelocityRange =
+                sat.getVelocity() >= this.speed[0] && sat.getVelocity() <= this.speed[1];
+            const isInDateRange =
+                (!this.launchDate && !sat.launchDate) ||
+                !this.launchDate ||
+                (sat.launchDate && sat.launchDate.getTime() >= this.launchDate.getTime());
+            const checkLaunchSite =
+                !this.launchSites.length || this.launchSites.includes(sat.launchSite);
+            const checkSize = !this.sizes.length || this.sizes.includes(sat.size);
+            const checkCountries = !this.countries.length || this.countries.includes(sat.country);
+            const checkTypes = !this.types.length || this.types.includes(sat.type);
+
+            const isCompliant =
+                isNotErrored &&
+                isNameMatching &&
+                isIdMatching &&
+                isInDistanceRange &&
+                isInDateRange &&
+                checkLaunchSite &&
+                checkSize &&
+                isInVelocityRange &&
+                checkCountries &&
+                checkTypes;
 
             sat.show = isCompliant || false;
         }

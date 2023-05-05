@@ -19,7 +19,7 @@ let worker: Worker;
 function Satellites() {
     const meshRef = useRef<InstancedMesh>(null!);
     const satellites = useContext(SatellitesContext);
-    const { settings, setSettings } = useContext(SettingsContext);
+    const { settings } = useContext(SettingsContext);
 
     function onSatelliteHover(satellite: Satellite) {
         meshRef.current.setColorAt(

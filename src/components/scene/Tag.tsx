@@ -7,11 +7,9 @@ import SatellitesContext from "../../contexts/SatellitesContext";
 import { EventEmitter, Event } from "../../events/";
 import { Satellite } from "./satellite/Satellite";
 import Info from "./Info";
-// import { OrbitControls } from "three-stdlib";
-// import { Tween } from "@tweenjs/tween.js";
 
 function Tag() {
-    let satellites = useContext(SatellitesContext);
+    const satellites = useContext(SatellitesContext);
     const [pointer] = useState<Vector2>(new Vector2());
     const [onCanvas, setOnCanvas] = useState(true);
     const [hoveredSatellite, setHoveredSatellite] = useState<Satellite>(null!);
@@ -57,7 +55,7 @@ function Tag() {
         setHoveredSatellite(satellite);
     }
 
-    function onSatelliteUnhover(satellite: Satellite) {
+    function onSatelliteUnhover() {
         setHoveredSatellite(null!);
     }
 
