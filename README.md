@@ -16,6 +16,11 @@ It also uses instanced mesh for the 3D object, which helps avoid a ton of GPU dr
 
 ⚠️ The app runs pretty smoothly on any device but does a lot of calculations in the background which are power-hungry and might drain batteries quickly on mobile devices.
 
+## 🌐 Translations
+
+Fully translated in English 🇬🇧 and French 🇫🇷.
+You can help with the translation by making a [Pull Request]("https://github.com/PainOchoco/Orbital/pulls")!
+
 ## 📋 To Do List
 
 -   [x] Settings menu
