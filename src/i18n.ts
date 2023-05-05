@@ -11,8 +11,8 @@ i18next
         fallbackLng: "en",
         defaultNS: "translation",
         backend: {
-            loadPath: "/locales/{{lng}}.json",
-            addPath: "/locales/{{lng}}.missing.json",
+            loadPath: "/Orbital/locales/{{lng}}.json",
+            addPath: "/Orbital/locales/{{lng}}.missing.json",
         },
         returnNull: false,
     });
