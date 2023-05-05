@@ -1,5 +1,6 @@
 ![](https://github.com/PainOchoco/Orbital/actions/workflows/deploy.yml/badge.svg)
 ![](https://img.shields.io/github/license/PainOchoco/Orbital)
+![](https://www.codefactor.io/repository/github/painochoco/orbital/badge/main)
 
 # 🛰️ Orbital
 
