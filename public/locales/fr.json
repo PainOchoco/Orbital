@@ -1,0 +1,47 @@
+{
+    "menu": {
+        "filter": {
+            "name": {
+                "label": "Nom",
+                "placeholder": "Nom ou pattern..."
+            },
+            "id": {
+                "label": "Norad ID",
+                "placeholder": "ID..."
+            },
+            "distance": {
+                "label": "Distance à la Terre (10³ km)"
+            },
+            "speed": {
+                "label": "Vitesse (km/s)"
+            },
+            "launch_date": {
+                "label": "Date de lancement"
+            },
+            "launch_sites": {
+                "label": "Sites de lancement"
+            },
+            "sizes": {
+                "label": "Tailles"
+            },
+            "types": {
+                "label": "Types"
+            },
+            "countries": {
+                "label": "Pays"
+            }
+        },
+        "results": {
+            "title_one": "Objet trouvé",
+            "title_other": "{{count}} Objets trouvés",
+            "title_zero": "Aucun objet trouvé"
+        },
+        "settings": {
+            "title": "Réglages",
+            "show_skymap": "Afficher l'image d'arrière plan",
+            "show_atmosphere": "Afficher l'atmosphère",
+            "time_multiplier": "Multiplicateur de temps",
+            "lang": "Langage"
+        }
+    }
+}

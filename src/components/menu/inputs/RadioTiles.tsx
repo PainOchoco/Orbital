@@ -1,14 +1,14 @@
 function RadioTiles(props: {
     labels: string[];
-    values: number[];
+    values: any[];
     name: string;
-    get: number;
-    set: (value: number) => void;
+    get: any;
+    set: (value: any) => void;
 }) {
     return (
         <div className="flex flex-wrap gap-2">
             {props.labels.map((label, i) => (
-                <div key={i} className="relative h-10 w-16">
+                <div key={i} className="relative h-10 w-20">
                     <input
                         type="radio"
                         id={label}

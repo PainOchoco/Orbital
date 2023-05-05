@@ -21,7 +21,7 @@ import {
     SatelliteSize,
     SatelliteType,
 } from "../scene/satellite";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Multiselect from "./inputs/MultiSelect";
 import DoubleSlider from "./inputs/DoubleSlider";
 import Filter from "./Filter";
@@ -29,6 +29,7 @@ import SatellitesContext from "../../contexts/SatellitesContext";
 import { Virtuoso } from "react-virtuoso";
 import { Constants } from "../../Constants";
 import Settings from "./MenuSettings";
+import { useTranslation } from "react-i18next";
 
 library.add(
     faXmark,
@@ -45,6 +46,8 @@ library.add(
 );
 
 function Menu(props: { opened: boolean; toggle: () => void }) {
+    const { t } = useTranslation();
+
     const [name, setName] = useState<string>("");
     const [id, setId] = useState<string>("");
     const [distanceToEarth, setDistanceToEarth] = useState<[number, number]>([
@@ -106,22 +109,22 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Input
                                 set={setName}
                                 icon="tag"
-                                placeholder="Name or pattern..."
+                                placeholder={t("menu.filter.name.placeholder")}
                                 type="text"
-                                label="Name"
+                                label={t("menu.filter.name.label")}
                             />
                             <Input
                                 set={setId}
                                 icon="fingerprint"
-                                placeholder="ID..."
+                                placeholder={t("menu.filter.id.placeholder")}
                                 type="text"
-                                label="Norad ID"
+                                label={t("menu.filter.id.label")}
                             />
                         </div>
                         <div className="flex text-center gap-0 sm:gap-5">
                             <DoubleSlider
                                 icon="earth"
-                                label={"Distance to Earth (10³ km)"}
+                                label={t("menu.filter.distance.label")}
                                 set={setDistanceToEarth}
                                 get={distanceToEarth}
                                 min={Constants.LOWEST_EARTH_ORBIT}
@@ -131,7 +134,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                         <div className="flex text-center gap-0 sm:gap-5">
                             <DoubleSlider
                                 icon="gauge-high"
-                                label="Speed (km/s)"
+                                label={t("menu.filter.speed.label")}
                                 set={setSpeed}
                                 get={speed}
                                 min={Constants.MIN_SPEED}
@@ -142,15 +145,14 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Input
                                 set={(d) => setLaunchDate(new Date(d))}
                                 icon="rocket"
-                                placeholder=""
                                 type="date"
-                                label="Launch date"
+                                label={t("menu.filter.launch_date.label")}
                             />
                             <Multiselect
                                 get={launchSites}
                                 set={setLaunchSites}
                                 enum={SatelliteLaunchSite}
-                                label="Launch sites"
+                                label={t("menu.filter.launch_sites.label")}
                                 icon="crosshairs"
                             />
                         </div>
@@ -159,14 +161,14 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                                 get={sizes}
                                 set={setSizes}
                                 enum={SatelliteSize}
-                                label="Sizes"
+                                label={t("menu.filter.sizes.label")}
                                 icon="arrows-up-down-left-right"
                             />
                             <Multiselect
                                 get={types}
                                 set={setTypes}
                                 enum={SatelliteType}
-                                label="Types"
+                                label={t("menu.filter.types.label")}
                                 icon="cube"
                             />
                         </div>
@@ -175,7 +177,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                                 get={countries}
                                 set={setCountries}
                                 enum={SatelliteCountry}
-                                label="Countries"
+                                label={t("menu.filter.countries.label")}
                                 icon="flag"
                             />
                             <Input
@@ -192,7 +194,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
             </form>
             <div className="py-5">
                 <h1 className="text-amber-600 font-bold text-3xl">
-                    Objects Found <span className="text-sm">{filteredSatellites.length}</span>
+                    {t("menu.results.title", { count: filteredSatellites.length })}
                 </h1>
                 <div className="h-64">
                     <Virtuoso
