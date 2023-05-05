@@ -9,7 +9,15 @@ import {
     faSatellite,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Satellite, SatelliteCountry, SatelliteLaunchSite, SatelliteType } from "./satellite/";
+import {
+    Satellite,
+    SatelliteCountry,
+    SatelliteLaunchSite,
+    SatelliteSize,
+    SatelliteType,
+} from "./satellite/";
+import { t } from "i18next";
+import { useEffect } from "react";
 
 library.add(
     faCrosshairs,
@@ -29,34 +37,52 @@ function Info(props: { satellite: Satellite }) {
             <div>
                 <div>
                     <FontAwesomeIcon icon="crosshairs" color="#D97706" className="pr-1" />
-                    <span className="text-gray-500 font-bold">Position</span>
+                    <span className="text-gray-500 font-bold">{t("info.position.title")}</span>
                 </div>
                 <p className="text-slate-300">
-                    X: {props.satellite.coordinates.position.x.toFixed(2)}
-                    Y: {props.satellite.coordinates.position.y.toFixed(2)}
-                    Z: {props.satellite.coordinates.position.x.toFixed(2)}
+                    {t("info.position.x", { value: props.satellite.coordinates.position.x })}
+                    <br />
+                    {t("info.position.y", { value: props.satellite.coordinates.position.y })}
+                    <br />
+                    {t("info.position.z", { value: props.satellite.coordinates.position.z })}
                 </p>
             </div>
             <div>
                 <FontAwesomeIcon icon="gauge-high" color="#D97706" className="pr-1" />
-                <span className="text-gray-500 font-bold">Velocity</span>
-                <p className="text-slate-300">{props.satellite.getVelocity().toFixed(2)}km/s</p>
+                <span className="text-gray-500 font-bold">{t("info.velocity.title")}</span>
+                <p className="text-slate-300">
+                    {t("info.velocity.value", { value: props.satellite.getVelocity() })}
+                </p>
             </div>
             <div>
                 <FontAwesomeIcon icon="rocket" color="#D97706" className="pr-1" />
-                <span className="text-gray-500 font-bold">Launch</span>
-                <p className="text-slate-300">{props.satellite.launchDate?.toDateString()}</p>
-                <p className="text-slate-300">{SatelliteLaunchSite[props.satellite.launchSite]}</p>
+                <span className="text-gray-500 font-bold">{t("info.launch.title")}</span>
+                <p className="text-slate-300">
+                    {t("info.launch.date", {
+                        date: props.satellite.launchDate,
+                    })}
+                </p>
+                <p className="text-slate-300">
+                    {t("info.launch.site", {
+                        site: t(SatelliteLaunchSite[props.satellite.launchSite]),
+                    })}
+                </p>
             </div>
             <div>
                 <FontAwesomeIcon icon="flag" color="#D97706" className="pr-1" />
-                <span className="text-gray-500 font-bold">Country/Organization</span>
-                <p className="text-slate-300">{SatelliteCountry[props.satellite.country]}</p>
+                <span className="text-gray-500 font-bold">{t("info.country.title")}</span>
+                <p className="text-slate-300">
+                    {t("info.country.value", {
+                        country: t(SatelliteCountry[props.satellite.country]),
+                    })}
+                </p>
             </div>
             <div>
                 <FontAwesomeIcon icon="satellite" color="#D97706" className="pr-1" />
-                <span className="text-gray-500 font-bold">Object type</span>
-                <p className="text-slate-300">{SatelliteType[props.satellite.type]}</p>
+                <span className="text-gray-500 font-bold">{t("info.type.title")}</span>
+                <p className="text-slate-300">
+                    {t("info.type.value", { type: t(SatelliteType[props.satellite.type]) })}
+                </p>
             </div>
             <div>
                 <FontAwesomeIcon
@@ -64,13 +90,19 @@ function Info(props: { satellite: Satellite }) {
                     color="#D97706"
                     className="pr-1"
                 />
-                <span className="text-gray-500 font-bold">Size</span>
-                <p className="text-slate-300">{props.satellite.size.toLowerCase()}</p>
+                <span className="text-gray-500 font-bold">{t("info.size.title")}</span>
+                <p className="text-slate-300">
+                    {t("info.size.value", { size: t(SatelliteSize[props.satellite.size]) })}
+                </p>
             </div>
             <div>
                 <FontAwesomeIcon icon="clock" color="#D97706" className="pr-1" />
-                <span className="text-gray-500 font-bold">Last update</span>
-                <p className="text-slate-300">{props.satellite.lastUpdated?.toDateString()}</p>
+                <span className="text-gray-500 font-bold">{t("info.last_updated.title")}</span>
+                <p className="text-slate-300">
+                    {t("info.last_updated.value", {
+                        lastUpdated: props.satellite.lastUpdated,
+                    })}
+                </p>
             </div>
         </div>
     );

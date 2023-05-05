@@ -14,5 +14,4 @@ i18next
             loadPath: "/Orbital/locales/{{lng}}.json",
             addPath: "/Orbital/locales/{{lng}}.missing.json",
         },
-        returnNull: false,
     });

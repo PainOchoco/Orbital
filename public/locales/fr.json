@@ -1,6 +1,7 @@
 {
     "menu": {
         "filter": {
+            "title": "Filtres",
             "name": {
                 "label": "Nom",
                 "placeholder": "Nom ou pattern..."
@@ -43,5 +44,43 @@
             "time_multiplier": "Multiplicateur de temps",
             "lang": "Langage"
         }
+    },
+    "info": {
+        "position": {
+            "title": "Position",
+            "x": "X: {{value, number(maximumSignificantDigits: 2)}}",
+            "y": "Y: {{value, number(maximumSignificantDigits: 2)}}",
+            "z": "Z: {{value, number(maximumSignificantDigits: 2)}}"
+        },
+        "velocity": {
+            "title": "Vitesse",
+            "value": "{{value, number(maximumSignificantDigits: 2)}} km/s"
+        },
+        "launch": {
+            "title": "Lancement",
+            "date": "{{- date, datetime}}",
+            "site": "{{site}}"
+        },
+        "country": {
+            "title": "Pays/Organisation",
+            "value": "{{country}}"
+        },
+        "type": {
+            "title": "Type d'objet",
+            "value": "{{type}}"
+        },
+        "size": {
+            "title": "Taille",
+            "value": "{{size}}"
+        },
+        "last_updated": {
+            "title": "Dernière mise à jour",
+            "value": "{{- lastUpdated, datetime}}"
+        }
+    },
+
+    "multi_select": {
+        "select": "Sélectionner {{item}}",
+        "selected": "{{count}} {{item}} sélectionnés"
     }
 }

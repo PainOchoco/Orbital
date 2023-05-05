@@ -59,10 +59,10 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
         Constants.MAX_SPEED,
     ]);
     const [launchDate, setLaunchDate] = useState<Date>(null!);
-    const [launchSites, setLaunchSites] = useState<SatelliteLaunchSite[]>([]);
-    const [sizes, setSizes] = useState<SatelliteSize[]>([]);
-    const [types, setTypes] = useState<SatelliteType[]>([]);
-    const [countries, setCountries] = useState<SatelliteCountry[]>([]);
+    const [launchSites, setLaunchSites] = useState<(keyof typeof SatelliteLaunchSite)[]>([]);
+    const [sizes, setSizes] = useState<(keyof typeof SatelliteSize)[]>([]);
+    const [types, setTypes] = useState<(keyof typeof SatelliteType)[]>([]);
+    const [countries, setCountries] = useState<(keyof typeof SatelliteCountry)[]>([]);
 
     const satellites = useContext(SatellitesContext);
     const [filteredSatellites, setFilteredSatellites] = useState<Satellite[]>(satellites.slice());
@@ -100,7 +100,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                     <FontAwesomeIcon icon="xmark" size="xl" color="#6B7280" />
                 </button>
 
-                <h1 className="text-amber-600 font-bold text-3xl">Filters</h1>
+                <h1 className="text-amber-600 font-bold text-3xl">{t("menu.filter.title")}</h1>
             </div>
             <form onSubmit={submit}>
                 <div className="text-gray-500">
@@ -151,7 +151,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Multiselect
                                 get={launchSites}
                                 set={setLaunchSites}
-                                enum={SatelliteLaunchSite}
+                                options={Object.values(SatelliteLaunchSite).map((s) => t(s))}
                                 label={t("menu.filter.launch_sites.label")}
                                 icon="crosshairs"
                             />
@@ -160,14 +160,14 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Multiselect
                                 get={sizes}
                                 set={setSizes}
-                                enum={SatelliteSize}
+                                options={Object.values(SatelliteSize).map((s) => t(s))}
                                 label={t("menu.filter.sizes.label")}
                                 icon="arrows-up-down-left-right"
                             />
                             <Multiselect
                                 get={types}
                                 set={setTypes}
-                                enum={SatelliteType}
+                                options={Object.values(SatelliteType).map((s) => t(s))}
                                 label={t("menu.filter.types.label")}
                                 icon="cube"
                             />
@@ -176,7 +176,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Multiselect
                                 get={countries}
                                 set={setCountries}
-                                enum={SatelliteCountry}
+                                options={Object.values(SatelliteCountry).map((s) => t(s))}
                                 label={t("menu.filter.countries.label")}
                                 icon="flag"
                             />

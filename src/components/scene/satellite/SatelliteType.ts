@@ -1,10 +1,10 @@
-enum SatelliteType {
-    PAYLOAD = "Payload",
-    DEBRIS = "Debris",
-    "ROCKET BODY" = "Rocket Body",
-    TBA = "TBA",
-    UNKNOWN = "Unknown",
-}
+const SatelliteType = {
+    PAYLOAD: "type.payload",
+    DEBRIS: "type.debris",
+    "ROCKET BODY": "type.rocket_body",
+    TBA: "type.tba",
+    UNKNOWN: "unknown",
+};
 
 export const colors = {
     PAYLOAD: "#22c55e",

@@ -14,22 +14,22 @@ class Filter {
     id: string;
     distanceToEarth: [number, number];
     launchDate: Date;
-    launchSites: SatelliteLaunchSite[];
-    sizes: SatelliteSize[];
+    launchSites: (keyof typeof SatelliteLaunchSite)[];
+    sizes: (keyof typeof SatelliteSize)[];
     speed: [number, number];
-    countries: SatelliteCountry[];
-    types: SatelliteType[];
+    countries: (keyof typeof SatelliteCountry)[];
+    types: (keyof typeof SatelliteType)[];
 
     constructor(
         namePattern: string,
         id: string,
         distanceToEarth: [number, number],
         launchDate: Date,
-        launchSites: SatelliteLaunchSite[],
-        sizes: SatelliteSize[],
+        launchSites: (keyof typeof SatelliteLaunchSite)[],
+        sizes: (keyof typeof SatelliteSize)[],
         speed: [number, number],
-        countries: SatelliteCountry[],
-        types: SatelliteType[]
+        countries: (keyof typeof SatelliteCountry)[],
+        types: (keyof typeof SatelliteType)[]
     ) {
         this.namePattern = namePattern;
         this.id = id;
@@ -58,14 +58,12 @@ class Filter {
                 ((!this.launchDate && !sat.launchDate) ||
                     !this.launchDate ||
                     (sat.launchDate && sat.launchDate.getTime() >= this.launchDate.getTime())) &&
-                (!this.launchSites.length ||
-                    this.launchSites.includes(SatelliteLaunchSite[sat.launchSite])) &&
-                (!this.sizes.length || this.sizes.includes(SatelliteSize[sat.size])) &&
+                (!this.launchSites.length || this.launchSites.includes(sat.launchSite)) &&
+                (!this.sizes.length || this.sizes.includes(sat.size)) &&
                 sat.getVelocity() >= this.speed[0] &&
                 sat.getVelocity() <= this.speed[1] &&
-                (!this.countries.length ||
-                    this.countries.includes(SatelliteCountry[sat.country])) &&
-                (!this.types.length || this.types.includes(SatelliteType[sat.type]));
+                (!this.countries.length || this.countries.includes(sat.country)) &&
+                (!this.types.length || this.types.includes(sat.type));
 
             sat.show = isCompliant || false;
         }
