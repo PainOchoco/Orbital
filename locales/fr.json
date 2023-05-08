@@ -1,0 +1,86 @@
+{
+    "menu": {
+        "filter": {
+            "title": "Filtres",
+            "name": {
+                "label": "Nom",
+                "placeholder": "Nom ou pattern..."
+            },
+            "id": {
+                "label": "Norad ID",
+                "placeholder": "ID..."
+            },
+            "distance": {
+                "label": "Distance à la Terre (10³ km)"
+            },
+            "speed": {
+                "label": "Vitesse (km/s)"
+            },
+            "launch_date": {
+                "label": "Date de lancement"
+            },
+            "launch_sites": {
+                "label": "Sites de lancement"
+            },
+            "sizes": {
+                "label": "Tailles"
+            },
+            "types": {
+                "label": "Types"
+            },
+            "countries": {
+                "label": "Pays"
+            }
+        },
+        "results": {
+            "title_one": "Objet trouvé",
+            "title_other": "{{count}} Objets trouvés",
+            "title_zero": "Aucun objet trouvé"
+        },
+        "settings": {
+            "title": "Réglages",
+            "show_skymap": "Afficher l'image d'arrière plan",
+            "show_atmosphere": "Afficher l'atmosphère",
+            "time_multiplier": "Multiplicateur de temps",
+            "lang": "Langage"
+        }
+    },
+    "info": {
+        "position": {
+            "title": "Position",
+            "x": "X: {{value, number(maximumSignificantDigits: 2)}}",
+            "y": "Y: {{value, number(maximumSignificantDigits: 2)}}",
+            "z": "Z: {{value, number(maximumSignificantDigits: 2)}}"
+        },
+        "velocity": {
+            "title": "Vitesse",
+            "value": "{{value, number(maximumSignificantDigits: 2)}} km/s"
+        },
+        "launch": {
+            "title": "Lancement",
+            "date": "{{- date, datetime}}",
+            "site": "{{site}}"
+        },
+        "country": {
+            "title": "Pays/Organisation",
+            "value": "{{country}}"
+        },
+        "type": {
+            "title": "Type d'objet",
+            "value": "{{type}}"
+        },
+        "size": {
+            "title": "Taille",
+            "value": "{{size}}"
+        },
+        "last_updated": {
+            "title": "Dernière mise à jour",
+            "value": "{{- lastUpdated, datetime}}"
+        }
+    },
+
+    "multi_select": {
+        "select": "Sélectionner {{item}}",
+        "selected": "{{count}} {{item}} sélectionnés"
+    }
+}

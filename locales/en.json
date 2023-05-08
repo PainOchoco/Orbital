@@ -1,0 +1,259 @@
+{
+    "menu": {
+        "filter": {
+            "title": "Filters",
+            "name": {
+                "label": "Name",
+                "placeholder": "Name or pattern..."
+            },
+            "id": {
+                "label": "Norad ID",
+                "placeholder": "ID..."
+            },
+            "distance": {
+                "label": "Distance to Earth (10³ km)"
+            },
+            "speed": {
+                "label": "Speed (km/s)"
+            },
+            "launch_date": {
+                "label": "Launch date"
+            },
+            "launch_sites": {
+                "label": "Launch sites"
+            },
+            "sizes": {
+                "label": "Sizes"
+            },
+            "types": {
+                "label": "Types"
+            },
+            "countries": {
+                "label": "Countries"
+            }
+        },
+        "results": {
+            "title_one": "Object found",
+            "title_other": "{{count}} Objects found",
+            "title_zero": "No object found"
+        },
+        "settings": {
+            "title": "Settings",
+            "show_skymap": "Show image background",
+            "show_atmosphere": "Show atmosphere",
+            "time_multiplier": "Time multiplier",
+            "lang": "Language"
+        }
+    },
+
+    "info": {
+        "position": {
+            "title": "Position",
+            "x": "X: {{value, number(maximumSignificantDigits: 2)}}",
+            "y": "Y: {{value, number(maximumSignificantDigits: 2)}}",
+            "z": "Z: {{value, number(maximumSignificantDigits: 2)}}"
+        },
+        "velocity": {
+            "title": "Velocity",
+            "value": "{{value, number(maximumSignificantDigits: 2)}} km/s"
+        },
+        "launch": {
+            "title": "Launch",
+            "date": "{{- date, datetime}}",
+            "site": "{{site}}"
+        },
+        "country": {
+            "title": "Country/Organization",
+            "value": "{{country}}"
+        },
+        "type": {
+            "title": "Object Type",
+            "value": "{{type}}"
+        },
+        "size": {
+            "title": "Size",
+            "value": "{{size}}"
+        },
+        "last_updated": {
+            "title": "Last Updated",
+            "value": "{{- lastUpdated, datetime}}"
+        }
+    },
+
+    "size": {
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+    },
+
+    "type": {
+        "payload": "Payload",
+        "debris": "Debris",
+        "rocket_body": "Rocket Body",
+        "tba": "To Be Assigned"
+    },
+
+    "unknown": "Unknown",
+
+    "multi_select": {
+        "select": "Select {{item}}",
+        "selected": "{{count}} {{item}} selected"
+    },
+
+    "countries": {
+        "alg": "Algeria 🇩🇿",
+        "ab": "ARABSAT",
+        "argn": "Argentina 🇦🇷",
+        "ac": "Asiasat Corp",
+        "aus": "Australia 🇦🇺",
+        "asra": "Austria 🇦🇹",
+        "azer": "Azerbaijan 🇦🇿",
+        "bela": "Belarus 🇧🇾",
+        "bel": "Belgium 🇧🇪",
+        "berm": "Bermuda 🇧🇲",
+        "bol": "Bolivia 🇧🇴",
+        "braz": "Brazil 🇧🇷",
+        "ca": "Canada 🇨🇦",
+        "chle": "Chile 🇨🇱",
+        "col": "Colombia 🇨🇴",
+        "cis": "CIS 🌐",
+        "pri": "Puerto Rico 🇵🇷",
+        "czch": "Czechoslovakia 🇨🇿",
+        "lka": "Sri Lanka 🇱🇰",
+        "den": "Denmark 🇩🇰",
+        "ecu": "Ecuador 🇪🇨",
+        "egyp": "Egypt 🇪🇬",
+        "est": "Estonia 🇪🇪",
+        "eume": "EUMETSAT 🇪🇺",
+        "esa": "ESA 🇪🇺",
+        "esro": "ESRO 🇪🇺",
+        "eute": "EUTELSAT 🇪🇺",
+        "npl": "Nepal 🇳🇵",
+        "fin": "Finland 🇫🇮",
+        "fr": "France 🇫🇷",
+        "fger": "France/Germany 🇫🇷🇩🇪",
+        "frit": "France/Italy 🇫🇷🇮🇹",
+        "ger": "Germany 🇩🇪",
+        "glob": "GlobalStar",
+        "grec": "Greece 🇬🇷",
+        "jor": "Jordan 🇯🇴",
+        "hun": "Hungary 🇭🇺",
+        "ind": "India 🇮🇳",
+        "indo": "Indonesia 🇮🇩",
+        "im": "INMARSAT 🌎",
+        "iss": "ISS 🌎",
+        "itso": "INTELSAT 🌎",
+        "iran": "Iran 🇮🇷",
+        "iraq": "Iraq 🇮🇶",
+        "isra": "Israel 🇮🇱",
+        "it": "Italy 🇮🇹",
+        "jpn": "Japan 🇯🇵",
+        "kaz": "Kazakhstan 🇰🇿",
+        "kwt": "Kuwait 🇰🇼",
+        "laos": "Laos 🇱🇦",
+        "ltu": "Lithuania 🇱🇹",
+        "luxe": "Luxembourg 🇱🇺",
+        "mala": "Malaysia 🇲🇾",
+        "mus": "Mauritius 🇲🇺",
+        "mex": "Mexico 🇲🇽",
+        "mda": "Moldova 🇲🇩",
+        "mng": "Mongolia 🇲🇳",
+        "ma": "Morocco 🇲🇦",
+        "neth": "Netherlands 🇳🇱",
+        "nico": "New ICO",
+        "nz": "New Zealand 🇳🇿",
+        "nig": "Nigeria 🇳🇬",
+        "nato": "NATO",
+        "nkor": "North Korea 🇰🇵",
+        "nor": "Norway 🇳🇴",
+        "o3b": "O3B Networks",
+        "orb": "GlobalStar",
+        "paki": "Pakistan 🇵🇰",
+        "bgd": "Bangladesh 🇧🇩",
+        "prc": "China 🇨🇳",
+        "chbz": "China/Brazil 🇨🇳🇧🇷",
+        "per": "Peru 🇵🇪",
+        "pol": "Poland 🇵🇱",
+        "por": "Portugal 🇵🇹",
+        "rasc": "RASCOM 🌍",
+        "ago": "Angola 🇦🇴",
+        "bgr": "Bulgaria 🇧🇬",
+        "roc": "Taiwan 🇹🇼",
+        "cri": "Costa Rica 🇨🇷",
+        "gha": "Ghana 🇬🇭",
+        "ken": "Kenya 🇰🇪",
+        "pry": "Paraguay 🇵🇾",
+        "rp": "Philippines 🇵🇭",
+        "rwa": "Rwanda 🇷🇼",
+        "svn": "Slovenia 🇸🇮",
+        "sdn": "Sudan 🇸🇩",
+        "mmr": "Myanmar 🇲🇲",
+        "tun": "Tunisia 🇹🇳",
+        "rom": "Romania 🇷🇴",
+        "saud": "Saudi Arabia 🇸🇦",
+        "seal": "Sea Launch Demo",
+        "sing": "Singapore 🇸🇬",
+        "stct": "Singapore/Taiwan 🇸🇬🇹🇼",
+        "ses": "SES 🇪🇺",
+        "safr": "South Africa 🇿🇦",
+        "skor": "South Korea 🇰🇷",
+        "spn": "Spain 🇪🇸",
+        "qat": "Qatar 🇶🇦",
+        "swed": "Sweden 🇸🇪",
+        "swtz": "Switzerland 🇨🇭",
+        "thai": "Thailand 🇹🇭",
+        "tbd": "To Be Determined/Unknown",
+        "turk": "Turkey 🇹🇷",
+        "tmmc": "Turkmenistan/Monaco 🇹🇲🇲🇨",
+        "ukr": "Ukrain 🇺🇦",
+        "uae": "UAE 🇦🇪",
+        "uk": "UK 🇬🇧",
+        "us": "USA 🇺🇸",
+        "usbz": "USA/Brazil 🇺🇸🇧🇷",
+        "ury": "Uruguay 🇺🇾",
+        "venz": "Venezuela 🇻🇪",
+        "vtnm": "Vietnam 🇻🇳",
+        "unknown": "Unknown"
+    },
+
+    "launch_sites": {
+        "afetr": "Air Force ER 🇺🇸",
+        "afwtr": "Air Force WR 🇺🇸",
+        "cas": "Canary Islands 🇮🇨",
+        "eras": "Eastern Range 🇺🇸",
+        "frgui": "French Guiana 🇫🇷",
+        "hgstr": "Hammaguira 🇩🇿",
+        "jsc": "Jiuquan 🇨🇳",
+        "kodak": "Kodiak Island 🇺🇸",
+        "kscut": "Kagoshima 🇯🇵",
+        "kwajl": "Kwajalein 🇲🇭",
+        "kymtr": "Kapustin Yar 🇷🇺",
+        "nsc": "Naro 🇰🇷",
+        "oren": "Orenburg 🇷🇺",
+        "pkmtr": "Plesetsk 🇷🇺",
+        "pmrf": "PMRF Barking Sands 🇺🇸",
+        "rllc": "Rocket Lab",
+        "sadol": "Barents Sea 🇺🇸",
+        "seal": "Sea Launch",
+        "sem": "Semnan 🇮🇷",
+        "smts": "Shahrud 🇮🇷",
+        "snmlp": "San Marco 🇮🇹",
+        "sri": "Satish Dhawan 🇮🇳",
+        "svob": "Svobodny 🇷🇺",
+        "swas": "Cornwall 🇬🇧",
+        "tnsta": "Tanegashima 🇯🇵",
+        "tsc": "Taiyaun 🇨🇳",
+        "ttmtr": "Baikonur 🇰🇿",
+        "unkn": "Unknown",
+        "vosto": "Vostochny 🇷🇺",
+        "vowas": "Virgin Orbit",
+        "wlpis": "Wallops Island 🇺🇸",
+        "womra": "Woomera 🇦🇺",
+        "wras": "Western Range 🇺🇸",
+        "wsc": "Wenchang 🇨🇳",
+        "xsc": "Xichang 🇨🇳",
+        "yavne": "Yavne 🇮🇱",
+        "ysla": "Yellow Sea 🇨🇳",
+        "yun": "Yunsong 🇰🇵"
+    }
+}
