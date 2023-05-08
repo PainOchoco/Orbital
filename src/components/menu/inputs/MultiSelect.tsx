@@ -29,7 +29,10 @@ function Multiselect(props: {
                                           count: props.get.length,
                                           item: props.label,
                                       })
-                                    : props.get.join(", ")
+                                    : props.get
+                                          .map((k) => Object.fromEntries(props.options)[k])
+                                          .map((v) => (i18n.exists(v) ? t(v) : v))
+                                          .join(", ")
                                 : t("multi_select.select", { item: props.label })}
                         </span>
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -46,7 +49,7 @@ function Multiselect(props: {
                         leaveTo="opacity-0"
                     >
                         <Listbox.Options className="z-10 absolute mt-1 max-h-60 w-full overflow-auto rounded-xl bg-gray-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 sm:text-sm">
-                            {Object.values(props.options).map((key, i) => (
+                            {props.options.map((key, i) => (
                                 <Listbox.Option
                                     key={i}
                                     className={({ active }) =>
