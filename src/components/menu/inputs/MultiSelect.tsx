@@ -10,11 +10,11 @@ library.add(faChevronDown, faCheck);
 function Multiselect(props: {
     get: string[];
     set: React.Dispatch<React.SetStateAction<any[]>>;
-    options: string[];
+    options: [string, string][];
     label: string;
     icon: IconProp;
 }) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="w-64">
@@ -54,11 +54,13 @@ function Multiselect(props: {
                                             active ? "bg-gray-900" : ""
                                         }`
                                     }
-                                    value={key}
+                                    value={key[0]}
                                 >
                                     {({ selected }) => (
                                         <>
-                                            <span className="block truncate">{key}</span>
+                                            <span className="block truncate">
+                                                {i18n.exists(key[1]) ? t(key[1]) : key[1]}
+                                            </span>
                                             {selected ? (
                                                 <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-600">
                                                     <FontAwesomeIcon

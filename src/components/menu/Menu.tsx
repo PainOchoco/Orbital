@@ -151,7 +151,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Multiselect
                                 get={launchSites}
                                 set={setLaunchSites}
-                                options={Object.values(SatelliteLaunchSite).map((s) => t(s))}
+                                options={Object.entries(SatelliteLaunchSite)}
                                 label={t("menu.filter.launch_sites.label")}
                                 icon="crosshairs"
                             />
@@ -160,14 +160,14 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Multiselect
                                 get={sizes}
                                 set={setSizes}
-                                options={Object.values(SatelliteSize).map((s) => t(s))}
+                                options={Object.entries(SatelliteSize)}
                                 label={t("menu.filter.sizes.label")}
                                 icon="arrows-up-down-left-right"
                             />
                             <Multiselect
                                 get={types}
                                 set={setTypes}
-                                options={Object.values(SatelliteType).map((s) => t(s))}
+                                options={Object.entries(SatelliteType)}
                                 label={t("menu.filter.types.label")}
                                 icon="cube"
                             />
@@ -176,7 +176,7 @@ function Menu(props: { opened: boolean; toggle: () => void }) {
                             <Multiselect
                                 get={countries}
                                 set={setCountries}
-                                options={Object.values(SatelliteCountry).map((s) => t(s))}
+                                options={Object.entries(SatelliteCountry)}
                                 label={t("menu.filter.countries.label")}
                                 icon="flag"
                             />
